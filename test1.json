@@ -1,0 +1,8 @@
+{
+    "tournament_name": "Name_Test",
+    "start_date": "2020-07-10",
+    "end_date": "2020-07-20",
+    "start_time": "10:30",
+    "end_time": "13:30",
+    "participants": ["Participant_1", "Participant_2", "Participant_3"]
+}
