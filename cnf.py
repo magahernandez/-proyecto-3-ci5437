@@ -112,14 +112,16 @@ def get_arguments(inf):
         "games_per_day": int(((datetime.strptime(exact_hour(1,inf['end_time']), '%H:%M') - datetime.strptime(exact_hour(0,inf['start_time']), '%H:%M')).seconds//(3600*2)))
     }
 
-def cnf(data):
+def cnf(data,nameFile):
 
     inf = get_arguments(data)
     clauses = []
 
-    with open(f'test1_cnf.txt', 'w') as cnf_file:
-        cnf_file.write('c test1 \n')
-        cnf_file.write('c\n')
+    name_txt = nameFile + '_cnf.txt'
+
+    with open(f'%s' %name_txt, 'w') as cnf_file:
+        #cnf_file.write('c test1 \n')
+        #cnf_file.write('c\n')
 
         # Rest 1
         clauses = play_twice_with_each_others(clauses,inf)
@@ -138,16 +140,14 @@ def cnf(data):
         write_clauses(clauses,cnf_file)
         cnf_file.close()
 
-    
     return
 
 def main():
-
     with open(sys.argv[1], "r") as fichero:
         data = json.load(fichero)
         fichero.close()
 
-    return cnf(data)
+    return cnf(data,sys.argv[1].replace('.json',''))
 
 if __name__ == "__main__":
     main()
