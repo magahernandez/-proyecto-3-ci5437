@@ -20,8 +20,8 @@ def get_hour(x):
     return str(obj_time)
 
 def create_file_ics(data_translate):
-    name_ics = sys.argv[1].replace(".json",".ics")
-
+    os.makedirs('ics', exist_ok=True)
+    name_ics = 'ics/'+sys.argv[1].replace(".json",".ics")
     with open(f'%s' %name_ics, 'w') as ics_file:
         ics_file.write("BEGIN:VCALENDAR\n")
         ics_file.write("VERSION:2.0\n")
@@ -56,7 +56,8 @@ def create_ics_structure(list_values):
     os.chdir('../../')
     global data
     global inf
-    with open(sys.argv[1], "r") as fichero:
+    folder = 'test/'+sys.argv[1]
+    with open(folder, "r") as fichero:
         data = json.load(fichero)
         fichero.close()
     inf = cnf.get_arguments(data)

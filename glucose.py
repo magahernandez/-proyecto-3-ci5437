@@ -8,9 +8,8 @@ import ics_transform
 
 def main(nameFile):
     sys.path.insert(2, 'glucose-syrup-4.1/simp/glucose_static')
-    os.system('ls')
-    shutil.copy(nameFile.replace('.json','_cnf.txt'), "glucose-syrup-4.1/simp/"+nameFile.replace('.json','_cnf.txt'))
-    os.system('ls')
+    fromFile = 'cnf/'+nameFile.replace('.json','_cnf.txt')
+    shutil.copy(fromFile, "glucose-syrup-4.1/simp/"+nameFile.replace('.json','_cnf.txt'))
     os.chdir('glucose-syrup-4.1/simp/')
     subprocess.call(["./glucose_static", nameFile.replace('.json','_cnf.txt'), "-model", ">>>", nameFile.replace('.json','_glucose.txt')])
     
@@ -22,8 +21,8 @@ def main(nameFile):
             return
 
     f.close()
-
-    shutil.copy(nameFile.replace('.json','_glucose.txt'), "../../"+nameFile.replace('.json','_glucose.txt'))
+    os.makedirs('../../glucose', exist_ok=True)
+    shutil.copy(nameFile.replace('.json','_glucose.txt'), "../../"+'glucose/'+nameFile.replace('.json','_glucose.txt'))
     ics_transform.main(nameFile.replace('.json','_glucose.txt'))
 
 if __name__ == "__main__":

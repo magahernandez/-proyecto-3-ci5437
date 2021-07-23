@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 import sys
 import time
+import os
 
 # Type: 0 start and 1 end
 def exact_hour(type_hour,hour):
@@ -168,8 +169,9 @@ def cnf(data,nameFile):
     inf = get_arguments(data)
     clauses = []
 
-    name_txt = nameFile + '_cnf.txt'
+    name_txt = 'cnf/'+nameFile + '_cnf.txt'
 
+    os.makedirs('cnf', exist_ok=True)
     with open(f'%s' %name_txt, 'w') as cnf_file:
 
         clauses = play_twice_with_each_others(clauses,inf)
@@ -186,7 +188,7 @@ def cnf(data,nameFile):
     return
 
 def main():
-    with open(sys.argv[1], "r") as fichero:
+    with open(str('test/'+sys.argv[1]), "r") as fichero:
         data = json.load(fichero)
         fichero.close()
 
