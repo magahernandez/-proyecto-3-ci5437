@@ -1,0 +1,8 @@
+{
+    "tournament_name": "Torneo de la reunion de los 5 kages",
+    "start_date": "2021-08-01",
+    "end_date": "2021-08-10",
+    "start_time": "10:30",
+    "end_time": "17:30",
+    "participants": ["Itachi Uchiha", "Sasuke Uchiha", "Jiraiya","Hatake Kakashi", "Naruto Uzumaki","Nagato Uzumaki"]
+}

@@ -1,0 +1,8 @@
+{
+    "tournament_name": "Torneo de los examenes Chunnin",
+    "start_date": "2021-08-01",
+    "end_date": "2021-08-10",
+    "start_time": "10:30",
+    "end_time": "16:30",
+    "participants": ["Itachi Uchiha", "Sasuke Uchiha", "Jiraiya"]
+}
