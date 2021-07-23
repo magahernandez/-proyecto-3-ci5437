@@ -14,6 +14,6 @@ def main():
     else:
         x = (input("Enter JSON file: "))
 
-# Ejemplo de como correr: python3 main test1.json
+# Ejemplo de como correr: python3 main.py name.json
 if __name__ == '__main__':
     main()
